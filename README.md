@@ -1,6 +1,6 @@
 # walking-robot
 
-This program is written in C++11. This program is case-sensative. "SOUTH" is accepted, not "south". Program will not run correctly.
+This program is written in C++11. 
 
 
 compile :- g++ main.cpp -o main -std=c++11
