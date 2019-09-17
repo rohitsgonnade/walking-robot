@@ -5,6 +5,7 @@
 
 #include<iostream>
 #include<string>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -28,12 +29,14 @@ public:
         pos_X = x;
         pos_Y = y;
 
+        //convert direction to lowercase to handle upper or lower case commands
+        transform( direction.begin(), direction.end(), direction.begin(), :: tolower);
 
-        if (direction == "NORTH")
+        if (direction == "north")
             index = 0;
-        else if (direction == "EAST")
+        else if (direction == "east")
             index = 1;
-        else if (direction == "SOUTH")
+        else if (direction == "south")
             index = 2;
         else
             index = 3;
@@ -52,13 +55,17 @@ public:
      * move the robot given the string instructions
      */
     void walk(string move_str) {
+        
+        //convert to lowercase
+        transform(move_str.begin(), move_str.end(), move_str.begin(), ::tolower);
+        
         int i = 0;
 
         //until end of commands
         while (move_str[i] != '\0') {
             
             //walk
-            if (move_str[i] == 'W') {
+            if (move_str[i] == 'w') {
                 //convert char into array digit
                 int v = (move_str[++i]) - '0';
 
@@ -75,7 +82,7 @@ public:
             
             }
             
-            else if (move_str[i] == 'L') // move counter-clockwise
+            else if (move_str[i] == 'l') // move counter-clockwise
             {
                 index--;
 
@@ -100,6 +107,8 @@ public:
 int main(int argc, char * argv[]) {
 
     if (argc == 5) {
+        
+       
         Walking_robot robot(stoi(argv[1]), stoi(argv[2]), argv[3]);
 
         robot.walk(argv[4]);
