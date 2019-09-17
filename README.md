@@ -2,6 +2,8 @@
 
 This program is written in C++11. 
 
+added case for more than 1 digit. e.g. LW12RW2RW11
+
 
 compile :- g++ main.cpp -o main -std=c++11
 
