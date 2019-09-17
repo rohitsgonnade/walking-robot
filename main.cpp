@@ -121,9 +121,22 @@ int main(int argc, char * argv[]) {
     //robot.get_position();
 
     if (argc == 5) {
+        
+        int x, y;
+        
+        try
+        {
+            x = stoi(argv[1]);
+            y = stoi(argv[2]);
+        }
+        catch(...)
+        {
+            cerr << "invalid argument exception Integer excepted "<< "\n";
+            return -1;
+        }
+        
 
-
-        Walking_robot robot(stoi(argv[1]), stoi(argv[2]), argv[3]);
+        Walking_robot robot(x,y, argv[3]);
 
         robot.walk(argv[4]);
         robot.get_position();
